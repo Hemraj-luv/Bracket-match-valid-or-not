@@ -1,0 +1,26 @@
+def Bracket_valid(s):
+    stack = []
+    bracketDict = {
+        "}" : "{",
+        "]" : "[",
+        ")" : "("
+    }
+    for b in s:
+        if b in bracketDict and stack and bracketDict[b] == stack[-1]:
+            stack.pop()
+        else:
+            stack.append(b)
+    if stack:
+        return("NO")
+    else:
+        return("YES")
+        
+n= int(input())
+list=[]
+
+for i in range(n):
+    s=input()
+    list.append(s)
+    
+for s in list: 
+    print(Bracket_valid(s))
